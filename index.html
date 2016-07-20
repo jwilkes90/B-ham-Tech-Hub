@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<title>Brum Bikes</title>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<head>
+<style>
+body	{ width:960px; padding:100px 0; margin:0 auto; font-family:Calibri, sans-serif; }
+#nav{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+	
+}
+#nav li{
+    display: inline;
+}
+
+
+#nav a{
+    display:inline-block;
+    padding:10px;
+}
+
+h1{
+	font-family: 'Pacifico', cursive;
+	font-size: 130px;
+	}
+	
+.footer-social { 
+	bottom : 2px;  
+	height : 40px;  
+	margin-top : 40px;  
+	text-align: center;  
+	vertical-align: middle; 
+	position:relative;
+	width:100%; }
+
+</style>
+<script>
+
+$(document).ready(function() {
+
+$('body').css('display', 'none');
+
+$('body').fadeIn(1000);
+$('.link').click(function(event) {
+
+event.preventDefault();
+
+newLocation = this.href;
+
+$('body').fadeOut(1000, newpage);
+
+});
+
+function newpage() {
+
+window.location = newLocation;
+
+}
+});
+
+// JSON Bike url
+var url = "https://raw.githubusercontent.com/jujhars13/jujhars13/master/bikes.json";
+
+$.getJSON(url, function (json) {
+
+var items = json.items;
+
+for (var i = 0; i < items.length; i++) {
+// Set the variables from the results array
+	var id = items[i].id;
+    var name = items[i].name;
+    var description = items[i].description;
+    var iThumb = items[i].image.thumb;
+    var iLarge = items[i].image.large;
+    var bClass = items[i].class;
+}
+
+    // Set the table td text
+    $('#id').text(id);
+    $('#name').text(name);
+	$('#description').text(description);
+    $('#iThumb').image(iThumb);
+    $('#bClass').text(bClass);
+
+});
+
+</script>
+</head>
+
+<body>
+
+<h1> John Lewis Bikes </h1>
+
+<ul id="nav">
+  <li><a href="https://raw.githubusercontent.com/jujhars13/jujhars13/master/bikes.json">JSON</a></li>
+</ul>
+
+<br>
+
+<p> A bicycle is many things to many people. It appeals to the pragmatist as well as to the dreamer, and serves as both tool and companion. 
+A bicycle should therefore make you feel good when you ride it - this is why JL Bikes specialise in providing the best customer service and
+ range of bikes available&hellip; </p>
+
+<table border="1">
+        
+        <tr>
+            <td>ID:</td>
+            <td id="id"></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td id="name"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td id="description"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td id="iThumb"></td>
+        </tr>
+        <tr>
+            <td>Class:</td>
+            <td id="bClass"></td>
+        </tr>
+    </table>
+
+
+<div class="footer-social" style="align: center;">
+  
+<a href="http://www.facebook.com">
+        <img src="fb.PNG" style="width: 35px; height: 35px;">
+    </a>
+<a href="http://www.twitter.com">
+    <img src="twitter.PNG" style="width: 35px; height: 35px;">
+</a>
+<a href="https://www.instagram.com/isambardscycles/">
+    <img src="insta.PNG" style="width: 35px; height: 35px;">
+</a>
+</body>
+
+</html>
