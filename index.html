@@ -10,6 +10,7 @@
 <head>
 <style>
 body	{ width:960px; padding:100px 0; margin:0 auto; font-family:Calibri, sans-serif; }
+
 #nav{
     border:1px solid #ccc;
     border-width:1px 0;
@@ -17,12 +18,10 @@ body	{ width:960px; padding:100px 0; margin:0 auto; font-family:Calibri, sans-se
     margin:0;
     padding:0;
     text-align:center;
-	
 }
 #nav li{
     display: inline;
 }
-
 
 #nav a{
     display:inline-block;
@@ -49,7 +48,6 @@ h1{
 $(document).ready(function() {
 
 $('body').css('display', 'none');
-
 $('body').fadeIn(1000);
 $('.link').click(function(event) {
 
@@ -74,26 +72,18 @@ var url = "https://raw.githubusercontent.com/jujhars13/jujhars13/master/bikes.js
 $.getJSON(url, function (json) {
 
 var items = json.items;
-
+var tr;
 for (var i = 0; i < items.length; i++) {
-// Set the variables from the results array
-	var id = items[i].id;
-    var name = items[i].name;
-    var description = items[i].description;
-    var iThumb = items[i].image.thumb;
-    var iLarge = items[i].image.large;
-    var bClass = items[i].class;
-}
-
-    // Set the table td text
-    $('#id').text(id);
-    $('#name').text(name);
-	$('#description').text(description);
-    $('#iThumb').image(iThumb);
-    $('#bClass').text(bClass);
-
-});
-
+	tr = $('<tr/>');
+	tr.append("<td>" + items[i].id + "</td>");
+    	tr.append("<td>" + items[i].name + "</td>");
+    	tr.append("<td>" + items[i].description + "</td>");
+	tr.append("<td>" + items[i].image.thumb + "</td>");
+	tr.append("<td>" + items[i].class + "</td>");
+	 $('table').append(tr);
+	}
+    });
+	
 </script>
 </head>
 
@@ -110,37 +100,25 @@ for (var i = 0; i < items.length; i++) {
 <p> A bicycle is many things to many people. It appeals to the pragmatist as well as to the dreamer, and serves as both tool and companion. 
 A bicycle should therefore make you feel good when you ride it - this is why JL Bikes specialise in providing the best customer service and
  range of bikes available&hellip; </p>
+ 
+<br>
 
 <table border="1">
         
-        <tr>
+	<tr>
             <td>ID:</td>
-            <td id="id"></td>
-        </tr>
-        <tr>
             <td>Name:</td>
-            <td id="name"></td>
-        </tr>
-        <tr>
             <td>Description:</td>
-            <td id="description"></td>
-        </tr>
-        <tr>
             <td>Image:</td>
-            <td id="iThumb"></td>
-        </tr>
-        <tr>
             <td>Class:</td>
-            <td id="bClass"></td>
         </tr>
-    </table>
-
+</table>
 
 <div class="footer-social" style="align: center;">
   
 <a href="http://www.facebook.com">
-        <img src="fb.PNG" style="width: 35px; height: 35px;">
-    </a>
+    <img src="fb.PNG" style="width: 35px; height: 35px;">
+</a>
 <a href="http://www.twitter.com">
     <img src="twitter.PNG" style="width: 35px; height: 35px;">
 </a>
