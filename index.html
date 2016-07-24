@@ -10,7 +10,6 @@
 <head>
 <style>
 body	{ width:960px; padding:100px 0; margin:0 auto; font-family:Calibri, sans-serif; }
-
 #nav{
     border:1px solid #ccc;
     border-width:1px 0;
@@ -18,20 +17,21 @@ body	{ width:960px; padding:100px 0; margin:0 auto; font-family:Calibri, sans-se
     margin:0;
     padding:0;
     text-align:center;
+	
 }
 #nav li{
     display: inline;
-}
-
-#nav a{
-    display:inline-block;
-    padding:10px;
 }
 
 h1{
 	font-family: 'Pacifico', cursive;
 	font-size: 130px;
 	}
+	
+img{
+	max-width: 100%;
+	height: auto;
+}
 	
 .footer-social { 
 	bottom : 2px;  
@@ -74,13 +74,13 @@ $.getJSON(url, function (json) {
 var items = json.items;
 var tr;
 for (var i = 0; i < items.length; i++) {
+	
 	tr = $('<tr/>');
-	tr.append("<td>" + items[i].id + "</td>");
     	tr.append("<td>" + items[i].name + "</td>");
-    	tr.append("<td>" + items[i].description + "</td>");
-	tr.append("<td>" + items[i].image.thumb + "</td>");
+	tr.append("<td>" + items[i].description + "</td>");
+	tr.append("<img src ='"+items[i].image.thumb+"'/>");
 	tr.append("<td>" + items[i].class + "</td>");
-	 $('table').append(tr);
+    	$('table').append(tr);
 	}
     });
 	
@@ -103,10 +103,8 @@ A bicycle should therefore make you feel good when you ride it - this is why JL 
  
 <br>
 
-<table border="1">
-        
+<table class = "table table-responsive table-striped table-bordered">
 	<tr>
-            <td>ID:</td>
             <td>Name:</td>
             <td>Description:</td>
             <td>Image:</td>
@@ -114,16 +112,17 @@ A bicycle should therefore make you feel good when you ride it - this is why JL 
         </tr>
 </table>
 
+
 <div class="footer-social" style="align: center;">
   
 <a href="http://www.facebook.com">
-    <img src="fb.PNG" style="width: 35px; height: 35px;">
+	<img src="fb.PNG" style="width: 35px; height: 35px;">
 </a>
 <a href="http://www.twitter.com">
-    <img src="twitter.PNG" style="width: 35px; height: 35px;">
+	<img src="twitter.PNG" style="width: 35px; height: 35px;">
 </a>
 <a href="https://www.instagram.com/isambardscycles/">
-    <img src="insta.PNG" style="width: 35px; height: 35px;">
+    	<img src="insta.PNG" style="width: 35px; height: 35px;">
 </a>
 </body>
 
